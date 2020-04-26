@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    h1 Please log in
+    h1 Введите логин и пароль 
     if error
         p.
             #{error}
@@ -13,14 +13,14 @@ block content
                 td
                     input(type="email",id="email",name="email",placeholder="email@foobar.com")
                 td.
-                    (it's "foo@bar.com")
+                    ("foo@bar.com")
             tr
                 td
                     input(type="password",id="password",name="password")
                 td.
-                    (it's "foobar")
+                    ("foobar")
         input(type="checkbox",id="remember",name="remember",value="1")
-        label(for="remember") Remember me
+        label(for="remember") Запомнить
         br
-        input(type="submit",id="accept",name="submit",value="Log in")
+        input(type="submit",id="accept",name="submit",value="Войти")
         input(type="submit",id="reject",name="submit",value="Deny access")
