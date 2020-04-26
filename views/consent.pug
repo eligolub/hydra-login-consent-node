@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    h1 An application requests access to your data!
+    h1 Приложение запрашивает доступ к данным!
     form(action="",method="POST")
         input(type="hidden",name="challenge",value=challenge)
         input(type="hidden",name="_csrf",value=csrfToken)
@@ -10,7 +10,7 @@ block content
             img(src=client.logo_uri)
 
         p.
-            Hi #{user}, application <strong>#{client.client_name || client.client_id}</strong> wants access resources on your behalf and to:
+            Привет #{user}, приложение <strong>#{client.client_name || client.client_id}</strong> хочет получить доступ к вашим данным :
 
         each scope in requested_scope
             input(type="checkbox",id=scope,value=scope,name="grant_scope")
@@ -18,8 +18,7 @@ block content
             br
 
         p.
-            Do you want to be asked next time when this application wants to access your data? The application will
-            not be able to ask for more permissions without your consent.
+            Спрашивать разрешение в следующий раз?
         ul
             if client.policy_uri
                 li
@@ -29,7 +28,7 @@ block content
                     a(href=client.tos_uri) Terms of Service
         p
             input(type="checkbox",id="remember",name="remember",value="1")
-            label(for="remember") Do not ask me again
+            label(for="remember") Больше не спрашивать
         p
-            input(type="submit",id="accept",name="submit",value="Allow access")
-            input(type="submit",id="reject",name="submit",value="Deny access")
+            input(type="submit",id="accept",name="submit",value="Разрешить")
+            input(type="submit",id="reject",name="submit",value="Отказать")
